@@ -11,17 +11,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 <button (click)="rijksSearch(newSearch.value)">Search</button>
 
-<mat-table [dataSource]="searchRes">
-  ...
-</mat-table>
-
+<mat-accordion>
+<mat-expansion-panel *ngFor="let favorite of searchRes">
+<mat-expansion-panel-header>
+<mat-panel-title>{{favorite.title}}</mat-panel-title>
+<mat-panel-description>
+{{favorite.desk}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>
+  <a href="{{favorite.image}}" target="_blank"><img src="{{favorite.image|replace : 's0' : 's128'}}" /></a>
+  </p>
+  
+</mat-expansion-panel>
+</mat-accordion>
 
 `,
   styles: []
 })
 export class SearchComponent {
 
-  searchRes: RijksArt [];
+  searchRes: RijksArt[];
 
   constructor(private api: ApiService) { }
 
