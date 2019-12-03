@@ -4,15 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material';
+import { ReplacePipe } from './replace-pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
